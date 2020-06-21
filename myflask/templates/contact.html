@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block content %}
+ <!-- contact-->
+ <section id="contact" style="background-color: #fff;" class="text-page pb-4"> 
+    <div class="container">
+      <div class="row">
+          <h2 class="heading">Contact</h2>
+          <div class="row">
+              <form id="contact-form" method="POST" action="" class="contact-form">
+                {{ form.hidden_tag() }}
+                <div class="controls">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        {{ form.firstname.label(class="form-control-label") }}
+
+                        {% if form.firstname.errors %}
+                            {{ form.firstname(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.firstname.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.firstname(class="form-control form-control-lg") }}
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        {{ form.lastname.label(class="form-control-label") }}
+                        {% if form.lastname.errors %}
+                            {{ form.lastname(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.lastname.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.lastname(class="form-control form-control-lg") }}
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    {{ form.youremail.label(class="form-control-label") }}
+                    {% if form.youremail.errors %}
+                        {{ form.youremail(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.youremail.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.youremail(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+                <div class="col-lg-20" >
+                  <div class="form-group">
+                    {{ form.yourmessage.label(class="form-control-label") }}
+                    {% if form.yourmessage.errors %}
+                        {{ form.yourmessage(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.yourmessage.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.yourmessage(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+                  <div class="text-center">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                  </div>
+                </div>
+              </form>
+            </div>
+{% endblock content %}
